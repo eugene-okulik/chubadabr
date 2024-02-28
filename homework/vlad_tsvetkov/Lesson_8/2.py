@@ -10,5 +10,5 @@ def fibonacci_gen(limit=100001):
 for cnt, num in enumerate(fibonacci_gen(), start=1):
     if cnt in (5, 200, 1000, 100000):
         print(num)
-    if cnt > 100001:
+    if cnt > 100000:
         break
