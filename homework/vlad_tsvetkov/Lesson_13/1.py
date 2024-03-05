@@ -3,7 +3,6 @@ import datetime
 
 file_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 dates_path = os.path.join(file_path, 'eugene_okulik', 'hw_13', 'data.txt')
-weekdays = {0: 'Понедельник', 1: 'Вторник', 2: 'Среда', 3: 'Четверг', 4: 'Пятница', 5: 'Суббота', 6: 'Воскресенье'}
 
 
 def get_date(text):
@@ -22,7 +21,7 @@ with open(dates_path, 'r') as dates_data:
         if get_line_num(line) == 1:
             print(date + datetime.timedelta(days=7))
         elif get_line_num(line) == 2:
-            print(weekdays[datetime.datetime.weekday(date)])
+            print(date.strftime('%A'))
         elif get_line_num(line) == 3:
             date_diff = datetime.datetime.now() - date
             print(date_diff.days)
