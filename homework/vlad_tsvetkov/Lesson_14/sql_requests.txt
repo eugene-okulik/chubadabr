@@ -1,0 +1,37 @@
+INSERT INTO students (`name`, `second_name`) VALUES('Vladislav', 'Tsvetkov')
+INSERT INTO books(title, taken_by_student_id) VALUES('Tales from the Yawning portal', 427);
+INSERT INTO books(title, taken_by_student_id) VALUES('Маус', 427);
+INSERT INTO books(title, taken_by_student_id) VALUES('Задача трёх тел', 427);
+INSERT INTO "groups"(title, start_date, end_date) VALUES('Secret group', 'Feb 18 2024', 'No info yet');
+UPDATE students SET group_id = 396 WHERE id = 427;
+INSERT INTO subjets(title) VALUES('Sorcery');
+INSERT INTO subjets(title) VALUES('Potionmaking');
+INSERT INTO lessons(title, subject_id) VALUES('Origins of sorcery', 493)
+INSERT INTO lessons(title, subject_id) VALUES('Advanced sorcery', 493)
+INSERT INTO lessons(title, subject_id) VALUES('Lotions and potions', 494);
+INSERT INTO lessons(title, subject_id) VALUES('Potionmaking accessories', 494)
+INSERT INTO marks(`value`, lesson_id, student_id) VALUES('B-', 522, 427);
+INSERT INTO marks(`value`, lesson_id, student_id) VALUES('A+', 523, 427);
+INSERT INTO marks(`value`, lesson_id, student_id) VALUES('C', 524, 427);
+INSERT INTO marks(`value`, lesson_id, student_id) VALUES('C+', 525, 427);
+
+SELECT * FROM marks WHERE student_id = 427; 
+
+SELECT * FROM books WHERE taken_by_student_id = 427;
+
+SELECT
+s.`name`,
+s.second_name,
+g.title 'Группа',
+b.title 'Borrowed book',
+sub.title 'Предмет',
+l.title 'Урок',
+m.`value` 'Оценка'
+FROM
+students s
+LEFT JOIN marks m ON s.id = m.student_id
+LEFT JOIN lessons l ON m.lesson_id = l.id
+LEFT JOIN subjets sub ON l.subject_id = sub.id
+LEFT JOIN "groups" g ON s.group_id = g.id
+LEFT JOIN books b ON s.id = b.taken_by_student_id
+WHERE s.id = 427
