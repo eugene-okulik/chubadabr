@@ -7,7 +7,7 @@ init()
 
 def is_datetime(line):
     try:
-        date = line[:line.find(' ', line.find(' ')+1)]
+        date = line[:line.find(' ', line.find(' ') + 1)]
         datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
         return True
     except ValueError:
@@ -15,13 +15,13 @@ def is_datetime(line):
 
 
 def get_datetime(line):
-    date = datetime.strptime(line[:line.find(' ', line.find(' ')+1)],  '%Y-%m-%d %H:%M:%S.%f')
+    date = datetime.strptime(line[:line.find(' ', line.find(' ') + 1)], '%Y-%m-%d %H:%M:%S.%f')
     return date
 
 
 def get_log(line):
     if is_datetime(line):
-        return line[line.find(' ', line.find(' ')+1)+1:]
+        return line[line.find(' ', line.find(' ') + 1) + 1:]
 
 
 def make_me_dict(file, logs):
@@ -62,7 +62,7 @@ def date_search(logs, date):
             print(Fore.YELLOW, key, Style.RESET_ALL, value[:300] if len(value) > 300 else value)
     elif date.find('/') > date.find('..') and date.find('..') == -1:
         start_date = datetime.strptime(date[:date.find('/')], '%Y-%m-%d %H:%M:%S.%f')
-        end_date = datetime.strptime(date[date.find('/')+1:], '%Y-%m-%d %H:%M:%S.%f')
+        end_date = datetime.strptime(date[date.find('/') + 1:], '%Y-%m-%d %H:%M:%S.%f')
         result = list(filter(lambda key: (key > start_date and key < end_date), logs.keys()))
         result_logs = {date: logs[date] for date in result}
         for key, value in result_logs.items():
@@ -74,9 +74,9 @@ def text_search(logs, text, notext=False):
     for key, value in logs.items():
         if value.find(text) != -1 and notext is False:
             text_ind = value.find(text)
-            start_text = value[:text_ind] if len(value[:text_ind]) < 150 else value[text_ind-150:text_ind]
-            end_text = value[text_ind:] if len(value[text_ind:]) < 150 else value[text_ind:text_ind+150]
-            print(Fore.YELLOW, key, Style.RESET_ALL, start_text+end_text)
+            start_text = value[:text_ind] if len(value[:text_ind]) < 150 else value[text_ind - 150:text_ind]
+            end_text = value[text_ind:] if len(value[text_ind:]) < 150 else value[text_ind:text_ind + 150]
+            print(Fore.YELLOW, key, Style.RESET_ALL, start_text + end_text)
         elif notext is True:
             for key, value in logs.items():
                 if text not in value:
