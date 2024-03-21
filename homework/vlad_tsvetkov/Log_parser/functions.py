@@ -80,9 +80,9 @@ def printer(result_logs, full=False, text=''):
     if bool(text):
         for key, value in result_logs.items():
             text_ind = value.find(text)
-            start_text = value[:text_ind] if len(value[:text_ind]) < 150 else value[text_ind-150:text_ind]
-            end_text = value[text_ind:] if len(value[text_ind:]) < 150 else value[text_ind:text_ind+150]
-            print(Fore.YELLOW, key, Style.RESET_ALL, start_text+end_text)
+            start_text = value[:text_ind] if len(value[:text_ind]) < 150 else value[text_ind - 150:text_ind]
+            end_text = value[text_ind:] if len(value[text_ind:]) < 150 else value[text_ind:text_ind + 150]
+            print(Fore.YELLOW, key, Style.RESET_ALL, start_text + end_text)
     # Был запрошен полный текст ошибки
     elif full:
         for key, value in result_logs.items():
