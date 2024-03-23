@@ -11,7 +11,7 @@ def create_post():
             "price": 1849.99,
             "CPU model": "Intel Core i9",
             "Hard disk size": "1 TB"
-            }
+                }
             }
     response = requests.post(url, json=body)
     post_id = response.json()['id']
@@ -27,7 +27,7 @@ def put_post():
             "year": 2018,
             "price": 777,
             "Hard disk size": "3 TB"
-            }
+                }
             }
     response = requests.put(url + f'/{id}', json=body)
     assert response.status_code == 200
@@ -41,7 +41,7 @@ def patch_post():
             "year": 2025,
             "price": 100500,
             "Hard disk size": "3 TB"
-            }
+                }
             }
     response = requests.patch(url + f'/{id}', json=body)
     assert response.status_code == 200
