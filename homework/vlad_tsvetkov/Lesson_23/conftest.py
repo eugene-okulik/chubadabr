@@ -52,7 +52,7 @@ def get_token():
     load_dotenv()
     if "TOKEN" in os.environ:
         token = os.environ['TOKEN']
-        if HealthCheckTests().token_healthcheck(token) == BaseEndpoint.valid_text + '123':
+        if HealthCheckTests().token_healthcheck(token) == BaseEndpoint.valid_text:
             return token
         else:
             os.environ['TOKEN'] = AuthTests().auth_get_token()

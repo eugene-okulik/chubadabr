@@ -1,7 +1,3 @@
-# import os
-# from dotenv import load_dotenv
-
-
 class BaseEndpoint():
     host = "http://167.172.172.115:52355/"
     nickname = "Chuba"
