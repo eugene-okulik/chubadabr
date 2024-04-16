@@ -81,12 +81,3 @@ def create_and_delete_meme(get_token):
     id = response.json()['id']
     yield id
     DeleteMeme().delete_meme(get_token, id)
-
-
-# Для метода создания
-# @pytest.fixture()
-# def delete_meme():
-#     yield
-
-#     def _delete_meme(result):
-#         return _delete_meme()

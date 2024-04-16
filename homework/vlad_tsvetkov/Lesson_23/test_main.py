@@ -1,3 +1,6 @@
+from service_funcs import delete_meme
+
+
 def test_authorization(authorization_endpoint):
     authorization_endpoint.auth_get_token()
     authorization_endpoint.check_status_code(200)
@@ -46,12 +49,12 @@ def test_one_meme_endpoint(one_meme_endpoint, get_token, get_one_meme):
     one_meme_endpoint.check_status_code(401)
 
 
-# UNFINISHED
 def test_post_meme(post_meme_endpoint, get_token):
-    post_meme_endpoint.post_meme(get_token)
+    meme_id = post_meme_endpoint.post_meme(get_token).json()['id']
     post_meme_endpoint.check_status_code(200)
     post_meme_endpoint.check_json_structure()
     post_meme_endpoint.check_meme_data()
+    delete_meme(get_token, meme_id)
 
     post_meme_endpoint.post_meme_no_token()
     post_meme_endpoint.check_status_code(401)
