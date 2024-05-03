@@ -12,7 +12,7 @@ class CreateAccPage(BasePage):
     required_field_error = 'This is a required field.'
     invalid_email_error = 'Please enter a valid email address (Ex: johndoe@domain.com).'
     password_3_classes_error = (
-        'Minimum of different classes of characters in password is 3. Classes of characters: ' +
+        'Minimum of different classes of characters in password is 3. Classes of characters: '
         'Lower Case, Upper Case, Digits, Special Characters.'
     )
 
