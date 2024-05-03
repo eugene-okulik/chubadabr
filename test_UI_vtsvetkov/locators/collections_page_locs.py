@@ -1,0 +1,8 @@
+category = '//span[@data-ui-id="page-title-wrapper"]'
+cart = '//a[@class="action showcart"]'
+cart_counter = '//span[@class="counter-number"]'
+added_to_cart_alert = '//div[contains(text(), "You added")]'
+short_28_size = '#option-label-size-143-item-171'
+short_28_color = '#option-label-color-93-item-56'
+short_add_to_cart = '//button[@class="action tocart primary"]'
+short_text = '//a[@class="product-item-link"]'
