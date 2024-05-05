@@ -1,4 +1,3 @@
-# from selenium.webdriver.remote.webdriver import WebDriver
 from playwright.sync_api import Page
 import allure
 
@@ -19,6 +18,3 @@ class BasePage:
 
     def find(self, locator):
         return self.page.locator(locator)
-
-    # def find_all(self, locator):
-    #     return self.driver.find_elements(*locator)
