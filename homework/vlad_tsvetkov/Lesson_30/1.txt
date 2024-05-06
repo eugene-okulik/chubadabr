@@ -1,0 +1,21 @@
+Task 2:
+    g  <  ESC-<       *  Go to first line in file
+    G  >  ESC->       *  Go to last line in file (or line N)
+    f  ^F  ^V  SPACE  *  Forward  one window (or N lines)
+    e  ^E  j  ^N  CR  *  Forward  one line   (or N lines)
+    y  ^Y  k  ^K  ^P  *  Backward one line   (or N lines)
+    /pattern          *  Search forward for (N-th) matching line
+    ?pattern          *  Search backward for (N-th) matching line
+    ESC-n             *  Repeat previous search, spanning files
+    ESC-N             *  Repeat previous search, reverse dir. & spanning files
+
+Task 3:
+    /dev/null - символьнольное устройство
+    /dev/zero - символьнольное устройство
+    /dev/sda - нет такого
+    /dev/tty - символьнольное устройство
+    /root - каталог
+    /etc/passwd - файл
+    /proc/mounts - символьная ссылка
+    /bin/ls - файл
+    /bin/zcat - файл
